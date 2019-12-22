@@ -11,6 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'BookController@index');
+
+Route::resource('books', 'BookController');
+Route::get('downloadfullPDF','BookController@downloadfullPDF')->name('downloadfullPDF');
+Route::get('downloadPDF/{id}', 'BookController@downloadPDF');
+
+
+Auth::routes();
+
+// Route::get('/home', 'BookController@index')->name('home');
